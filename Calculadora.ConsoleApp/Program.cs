@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Heloo World");
+            
             Console.WriteLine("-----------------------------------------");
             Console.WriteLine("Calculadora Tabajara 2025");
             Console.WriteLine("-----------------------------------------");
