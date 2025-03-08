@@ -41,22 +41,22 @@ namespace Calculadora.ConsoleApp
             //-----------------------------------------------------------------------
 
             int resultado = 0;
-            if (opcao == "1") ;
+            if (opcao == "1") 
             {
-                 resultado = (primeironumero + segundonumero);                
+                resultado = (primeironumero + segundonumero);                
             }                       
-            if (opcao == "2");
+            else if (opcao == "2")
             {
-                 resultado = (primeironumero - segundonumero);
-            }            
-            if (opcao == "3") ;
-            {
-                 resultado = (primeironumero * segundonumero);
-            }         
-            if(opcao == "4") ;
-            {
-                 resultado = (primeironumero / segundonumero);
+                resultado = (primeironumero - segundonumero);
             }
+            else if (opcao == "3")
+            {
+                resultado = (primeironumero * segundonumero);
+             }
+            else if (opcao == "4")
+            {
+                resultado = (primeironumero / segundonumero);
+             }
 
             //-----------------------------------------------------------------------
             
