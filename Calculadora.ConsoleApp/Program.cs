@@ -8,8 +8,11 @@ namespace Calculadora.ConsoleApp
         static void Main(string[] args)
         {
 
+            string[] historicoOperacoes = new string[100];
+            int contadorHistorico = 0;
 
-            while(true)
+
+            while (true)
             {
                 Console.Clear();
                 Console.WriteLine("Calculadora Tabajara 2025");
@@ -20,6 +23,7 @@ namespace Calculadora.ConsoleApp
                 Console.WriteLine("Digite 3 para multiplicar: ");
                 Console.WriteLine("Digite 4 para dividir: ");
                 Console.WriteLine("Digite 5 para tabuada: ");
+                Console.WriteLine("Digite 6 Histórico de Operações: ");
                 Console.WriteLine("Digite S para sair: ");
 
                 //-----------------------------------------------------------------------
@@ -58,9 +62,28 @@ namespace Calculadora.ConsoleApp
                     continue;
                 }
 
-                    //-----------------------------------------------------------------------
+                else if (opcao == "6")
+                {
+                    Console.WriteLine("--------------------------------");
+                    Console.WriteLine("Histórico de Operações");
+                    Console.WriteLine("--------------------------------");
 
-                    Console.Write("Digite o primeiro número: ");
+                    for (int contador = 0; contador < historicoOperacoes.Length; contador++)
+                    {
+                        string valorAtual = historicoOperacoes[contador];
+
+                        if (valorAtual != null)
+                            Console.WriteLine(valorAtual);
+                    }
+
+                    Console.WriteLine("Aperte ENTER para continuar");
+                    Console.ReadLine();
+                    continue;
+                }
+
+                //-----------------------------------------------------------------------
+
+                Console.Write("Digite o primeiro número: ");
 
                 string primeiroNumeroString = Console.ReadLine();
                 decimal primeiroNumero = Convert.ToDecimal(primeiroNumeroString);
@@ -76,14 +99,19 @@ namespace Calculadora.ConsoleApp
                 if (opcao == "1")
                 {
                     resultado = primeiroNumero + segundoNumero;
+                    historicoOperacoes[contadorHistorico] = $"{primeiroNumero} + {segundoNumero} = {resultado}";
                 }
                 else if (opcao == "2")
                 {
                     resultado = primeiroNumero - segundoNumero;
+                    historicoOperacoes[contadorHistorico] = $"{primeiroNumero} - {segundoNumero} = {resultado}";
+
                 }
+            
                 else if (opcao == "3")
                 {
                     resultado = primeiroNumero * segundoNumero;
+                    historicoOperacoes[contadorHistorico] = $"{primeiroNumero} * {segundoNumero} = {resultado}";
                 }
                 else if (opcao == "4")
                 {
@@ -96,13 +124,19 @@ namespace Calculadora.ConsoleApp
 
                     }
                     resultado = primeiroNumero / segundoNumero;
-
+                    historicoOperacoes[contadorHistorico] = $"{primeiroNumero} / {segundoNumero} = {resultado}";
 
                 }
 
+                contadorHistorico += 1;
+
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine("Resultado: " + resultado.ToString("F2"));
+                Console.WriteLine("--------------------------------");
+
                 //-----------------------------------------------------------------------
 
-                Console.WriteLine("Resultado: " + resultado);
+                
 
                 Console.Write("Deseja realizar nova operação? S/N ");
                 string novaoperacao = Console.ReadLine().ToUpper();
